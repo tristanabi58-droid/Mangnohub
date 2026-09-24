@@ -1,7 +1,5 @@
--- Memuat Library GUI (Menggunakan Orion Library)
 local OrionLib = loadstring(game:HttpGet(('https://githubusercontent.com')))()
 
--- Membuat Window Utama
 local Window = OrionLib:MakeWindow({
     Name = "Mangno v1 | Steal an Egg 🥚", 
     HidePremium = true, 
@@ -9,17 +7,14 @@ local Window = OrionLib:MakeWindow({
     ConfigFolder = "MangnoConfig"
 })
 
--- Membuat Tab Utama
 local MainTab = Window:MakeTab({
     Name = "Main Features",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
 
--- Bagian Info Status (Menegaskan Tidak Ada Premium)
 MainTab:AddLabel("Status: Free Version (No Premium / No Key)")
 
--- Fitur Toggle: Auto Steal (Logika Dasar)
 _G.AutoSteal = false
 MainTab:AddToggle({
     Name = "Auto Steal Egg (BETA)",
@@ -28,14 +23,11 @@ MainTab:AddToggle({
         _G.AutoSteal = Value
         while _G.AutoSteal do
             task.wait(1)
-            -- Catatan: Logika pemindahan telur ke base diletakkan di sini
-            -- Diperlukan path objek spesifik dari game Steal an Egg
             print("Mangno v1: Simulating Auto Steal...")
         end
     end    
 })
 
--- Fitur Toggle: Auto Hatch / Hatch Egg
 _G.AutoHatch = false
 MainTab:AddToggle({
     Name = "Auto Hatch Egg",
@@ -49,14 +41,12 @@ MainTab:AddToggle({
     end    
 })
 
--- Membuat Tab Player (Untuk Speed & Jump)
 local PlayerTab = Window:MakeTab({
     Name = "Player Hacks",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
 
--- Slider untuk Mengatur Kecepatan Jalan (WalkSpeed)
 PlayerTab:AddSlider({
     Name = "WalkSpeed",
     Min = 16,
@@ -70,5 +60,4 @@ PlayerTab:AddSlider({
     end    
 })
 
--- Inisialisasi Menu GUI
 OrionLib:Init()
